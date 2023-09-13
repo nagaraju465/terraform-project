@@ -1,14 +1,14 @@
 #this file consists of code for instances and sg
 provider "aws" {
-region = "ap-southeast-1"
+region = "us-east-1"
 }
 
 resource "aws_instance" "one" {
-  ami             = "ami-0b825ad86ddcfb907"
+  ami             = "ami-0f844a9675b22ea32"
   instance_type   = "t2.micro"
-  key_name        = "singaporekey"
+  key_name        = "virginiakey"
   vpc_security_group_ids = [aws_security_group.five.id]
-  availability_zone = "ap-southeast-1a"
+  availability_zone = "us-east-1a"
   user_data       = <<EOF
 #!/bin/bash
 sudo -i
@@ -23,11 +23,11 @@ EOF
 }
 
 resource "aws_instance" "two" {
-  ami             = "ami-0b825ad86ddcfb907"
+  ami             = "ami-0f844a9675b22ea32"
   instance_type   = "t2.micro"
-  key_name        = "singaporekey"
+  key_name        = "virginiakey"
   vpc_security_group_ids = [aws_security_group.five.id]
-  availability_zone = "ap-southeast-1b"
+  availability_zone = "us-east-1b"
   user_data       = <<EOF
 #!/bin/bash
 sudo -i
@@ -42,22 +42,22 @@ EOF
 }
 
 resource "aws_instance" "three" {
-  ami             = "ami-0b825ad86ddcfb907"
+  ami             = "ami-0f844a9675b22ea32"
   instance_type   = "t2.micro"
-  key_name        = "singaporekey"
+  key_name        = "virginiakey"
   vpc_security_group_ids = [aws_security_group.five.id]
-  availability_zone = "ap-southeast-1a"
+  availability_zone = "us-east-1a"
   tags = {
     Name = "app-server-1"
   }
 }
 
 resource "aws_instance" "four" {
-  ami             = "ami-0b825ad86ddcfb907"
+  ami             = "ami-0f844a9675b22ea32"
   instance_type   = "t2.micro"
-  key_name        = "singaporekey"
+  key_name        = "virginiakey"
   vpc_security_group_ids = [aws_security_group.five.id]
-  availability_zone = "ap-southeast-1b"
+  availability_zone = "us-east-1b"
   tags = {
     Name = "app-server-2"
   }
@@ -103,7 +103,7 @@ default = ["user1", "user2", "user3", "user4"]
 }
 
 resource "aws_ebs_volume" "eight" {
- availability_zone = "ap-southeast-1a"
+ availability_zone = "us-east-1a"
   size = 40
   tags = {
     Name = "ebs-001"
