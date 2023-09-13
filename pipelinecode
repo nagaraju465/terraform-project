@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                git 'https://github.com/devopsbyraham/terraform-project.git'
+                git 'gh repo clone nagaraju465/terraform-project'
             }
         }
         stage('init') {
